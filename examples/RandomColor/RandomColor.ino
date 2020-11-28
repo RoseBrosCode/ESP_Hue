@@ -1,5 +1,5 @@
 #include <WiFiClient.h>
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 #include <ESPHue.h>
 
 const char* ssid     = "Your_SSID_Here";

@@ -1,12 +1,13 @@
 /**************************************************************************
-				= Philips Hue Library for ESP8266 =
+				= Philips Hue Library for ESP32 =
 
 	This library is designed to access and control Philips Hue Lights Directly.
 
     Written by: Richard Wardlow @ Circuits for Fun, LLC
+	Modified for ESP32 by: RoseBrosCode
     GNU GPL, include above text in redistribution
 ***************************************************************************/
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 
 ////////////////////////////////////////
 // ESPHue Class

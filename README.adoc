@@ -1,6 +1,6 @@
-= Philips Hue Library for ESP8266 =
+= Philips Hue Library for ESP32 =
 
-This library is designed to access and control Philips Hue Lights Directly with an ESP8266 using the Arduino IDE.
+This library is designed to access and control Philips Hue Lights Directly with an ESP32 using the Arduino IDE.
 
 To use:
 
