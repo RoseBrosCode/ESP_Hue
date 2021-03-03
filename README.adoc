@@ -30,6 +30,8 @@ Available Class Methods:
 	
 	void setLight(int lightNum, int state, int sat, int bri, int hue, unsigned int trans);  // Set Light State, Saturation, Brightness, and Hue, with transition speed
 	
+	void setLightColorloop(byte lightNum, byte state); // Turns Color Loop On or Off for given light
+	
 	void setLightTemperature(int lightNum, int state, int bri, unsigned int ct);  // Set Light State, Brightness, and Light Temperature
 	
 	void setLightTemperature(int lightNum, int state, int bri, unsigned int ct, unsigned int trans);  // Set Light State, Brightness, and Light Temperature, with transition speed
