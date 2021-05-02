@@ -117,6 +117,52 @@ void ESPHue::setLight(byte lightNum, byte state, byte sat, byte bri, unsigned in
   delay(100);
 }
 
+void ESPHue::setLight(byte lightNum, byte state, double[] xy)
+{
+  if (!_client->connect(_host, _port)) {
+    Serial.println("connection failed");
+    return;
+  }
+  String url = "/api/" + String(_apiKey) + "/lights/" + lightNum + "/state";
+  String cmd = "{\"on\":";
+  if (state == 1)
+    cmd += "true,";
+  else
+    cmd += "false,";
+  cmd += " \"xy\":[" + String(xy[0]) + "," + String(xy[1]) + "]}";
+  int contLen = cmd.length();
+  _client->print("PUT " + url + " HTTP/1.1\r\n" +
+               "Host: " + _host + "\r\n" +
+               "Connection: keep-alive\r\n" +
+               "Accept: */*\r\n" +
+               "Content-Type: application/json\r\n" +
+               "Content-Length: " + contLen + "\r\n\r\n" + cmd + "\r\n\r\n");
+  delay(100);
+}
+
+void ESPHue::setLight(byte lightNum, byte state, double[] xy, unsigned int trans)
+{
+  if (!_client->connect(_host, _port)) {
+    Serial.println("connection failed");
+    return;
+  }
+  String url = "/api/" + String(_apiKey) + "/lights/" + lightNum + "/state";
+  String cmd = "{\"on\":";
+  if (state == 1)
+    cmd += "true,";
+  else
+    cmd += "false,";
+  cmd += " \"xy\":[" + String(xy[0]) + "," + String(xy[1]) + "]" + ", \"transitiontime\":" + String(trans) + "}";
+  int contLen = cmd.length();
+  _client->print("PUT " + url + " HTTP/1.1\r\n" +
+               "Host: " + _host + "\r\n" +
+               "Connection: keep-alive\r\n" +
+               "Accept: */*\r\n" +
+               "Content-Type: application/json\r\n" +
+               "Content-Length: " + contLen + "\r\n\r\n" + cmd + "\r\n\r\n");
+  delay(100);
+}
+
 void ESPHue::setLightColorloop(byte lightNum, byte state)
 {
   if (!_client->connect(_host, _port)) {
