@@ -117,7 +117,7 @@ void ESPHue::setLight(byte lightNum, byte state, byte sat, byte bri, unsigned in
   delay(100);
 }
 
-void ESPHue::setLight(byte lightNum, byte state, double[] xy)
+void ESPHue::setLight(byte lightNum, byte state, double xy[])
 {
   if (!_client->connect(_host, _port)) {
     Serial.println("connection failed");
@@ -140,7 +140,7 @@ void ESPHue::setLight(byte lightNum, byte state, double[] xy)
   delay(100);
 }
 
-void ESPHue::setLight(byte lightNum, byte state, double[] xy, unsigned int trans)
+void ESPHue::setLight(byte lightNum, byte state, double xy[], unsigned int trans)
 {
   if (!_client->connect(_host, _port)) {
     Serial.println("connection failed");

@@ -23,8 +23,8 @@ class ESPHue
 		int getLightState(byte lightNum);
 		void setLight(byte lightNum, byte state, byte sat, byte bri, unsigned int hue);
 		void setLight(byte lightNum, byte state, byte sat, byte bri, unsigned int hue, unsigned int trans);
-		void setLight(byte lightNum, byte state, double[] xy);
-		void setLight(byte lightNum, byte state, double[] xy, unsigned int trans);
+		void setLight(byte lightNum, byte state, double xy[]);
+		void setLight(byte lightNum, byte state, double xy[], unsigned int trans);
 		void setLightColorloop(byte lightNum, byte state);
 		void setLightTemperature(byte lightNum, byte state, byte bri, unsigned int ct);
 		void setLightTemperature(byte lightNum, byte state, byte bri, unsigned int ct, unsigned int trans);
