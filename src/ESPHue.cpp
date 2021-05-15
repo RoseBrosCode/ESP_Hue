@@ -254,6 +254,25 @@ void ESPHue::setLightPower(byte lightNum, byte state)
   delay(100);
 }
 
+void ESPHue::setLightBrightness(byte lightNum, byte bri)
+{
+  if (!_client->connect(_host, _port)) {
+    Serial.println("connection failed");
+    return;
+  }
+  String url = "/api/" + String(_apiKey) + "/lights/" + lightNum + "/state";
+  String cmd = "{\"bri\":" + String(bri) + "}";
+
+  int contLen = cmd.length();
+  _client->print("PUT " + url + " HTTP/1.1\r\n" +
+               "Host: " + _host + "\r\n" +
+               "Connection: keep-alive\r\n" +
+               "Accept: */*\r\n" +
+               "Content-Type: application/json\r\n" +
+               "Content-Length: " + contLen + "\r\n\r\n" + cmd + "\r\n\r\n");
+  delay(100);
+}
+
 
 String ESPHue::getGroupInfo(byte groupNum)
 {

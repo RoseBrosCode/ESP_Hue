@@ -29,6 +29,7 @@ class ESPHue
 		void setLightTemperature(byte lightNum, byte state, byte bri, unsigned int ct);
 		void setLightTemperature(byte lightNum, byte state, byte bri, unsigned int ct, unsigned int trans);
 		void setLightPower(byte lightNum, byte state);
+		void setLightBrightness(byte lightNum, byte bri);
 		String getGroupInfo(byte groupNum);
 		int getGroupState(byte groupNum);
 		void setGroup(byte groupNum, byte state, byte sat, byte bri, unsigned int hue);
